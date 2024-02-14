@@ -1,10 +1,10 @@
 const express = require("express");
 
 const routes = express.Router();
-const HamburgerController = require("./app/controller/RequestController");
+const RequestController = require("./app/controller/RequestController");
 
-routes.get("/request", HamburgerController.index);
+routes.get("/request", RequestController.index);
 
-routes.post("/request", HamburgerController.store);
+routes.post("/request", RequestController.store);
 
 module.exports = routes;
