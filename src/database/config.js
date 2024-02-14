@@ -1,3 +1,3 @@
 module.exports = {
-  uri: "mongodb://127.0.0.1:27017/request-grab"
+  uri: `mongodb+srv:/${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}:@cluster0.3pphasg.mongodb.net/?retryWrites=true&w=majority`
 };

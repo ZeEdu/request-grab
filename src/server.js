@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express");
 const db = require("./database/config");
 const mongoose = require("mongoose");
@@ -16,6 +18,7 @@ class App {
   }
 
   database() {
+    console.log({uri: db.uri})
     mongoose.connect(db.uri, { useNewUrlParser: true });
   }
 
