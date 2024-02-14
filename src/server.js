@@ -18,7 +18,6 @@ class App {
   }
 
   database() {
-    console.log({uri: db.uri})
     mongoose.connect(db.uri, { useNewUrlParser: true });
   }
 
