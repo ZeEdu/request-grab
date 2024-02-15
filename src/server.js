@@ -1,9 +1,11 @@
 require('dotenv').config()
 
-const mongooseConnection = require('./database/service')
-
 const express = require('express')
 const bodyParser = require('body-parser')
+const morgan = require('morgan')
+const cors = require('cors')
+
+const mongooseConnection = require('./database/service')
 
 const port = process.env.PORT || 8080
 class App {
@@ -11,6 +13,9 @@ class App {
     this.express = express()
     mongooseConnection.then(() => {
       console.log('MONGODB CONNECTED')
+      this.express.use(cors())
+      this.express.use(morgan('dev'))
+
       this.middlewares()
       this.routes()
       this.express.listen(port, () =>
