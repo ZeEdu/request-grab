@@ -1,8 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 const RequestSchema = new mongoose.Schema(
   {
     body: {
+      type: String,
+      required: true
+    },
+    headers: {
       type: String,
       required: true
     }
@@ -10,6 +14,6 @@ const RequestSchema = new mongoose.Schema(
   {
     timestamps: true
   }
-);
+)
 
-module.exports = mongoose.model("Request", RequestSchema);
+module.exports = mongoose.model('Request', RequestSchema)
