@@ -1,24 +1,19 @@
 require('dotenv').config()
 
-const express = require("express");
-const db = require("./database/config");
-const mongoose = require("mongoose");
-var bodyParser = require('body-parser')
+require('./database/service')
 
+const express = require("express")
+const bodyParser = require('body-parser')
+
+const port = process.env.PORT || 8080
 class App {
   constructor() {
     this.express = express();
-
-    this.database()
     this.middlewares();
     this.routes();
-    this.express.listen(3001, () =>
-      console.log(`Sua API REST está funcionando na porta 3001 `)
+    this.express.listen(port, () =>
+      console.log(`Sua API REST está funcionando na porta ${port}`)
     );
-  }
-
-  database() {
-    mongoose.connect(db.uri, { useNewUrlParser: true });
   }
 
   middlewares() {
