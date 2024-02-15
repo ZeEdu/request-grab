@@ -1,2 +1,5 @@
+require('dotenv').config()
+const port = process.env.PORT || 8080
+
 const server = require('./server')
-server.listen(3001)
+server.listen(port)
